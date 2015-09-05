@@ -573,7 +573,7 @@
             NSNumber* formatID = [NSNumber numberWithInt: kAudioFormatMPEG4AAC];
             NSNumber* quality = [NSNumber numberWithInt:AVAudioQualityMedium];
             NSNumber* sampleRate = [NSNumber numberWithFloat: 44100.0];
-            NSNumber* numberOfChannels = [NSNumber numberWithInt: 2];
+            NSNumber* numberOfChannels = [NSNumber numberWithInt: 1];
                 
                 
             NSDictionary* recorderSettingsDict = [NSDictionary dictionaryWithObjectsAndKeys:
