@@ -568,9 +568,21 @@
                     return;
                 }
             }
+
+	    NSDictionary *recordSettings = [NSDictionary
+            dictionaryWithObjectsAndKeys:
+            [NSNumber numberWithInt:AVAudioQualityMin],
+            AVEncoderAudioQualityKey,
+            [NSNumber numberWithInt:16],
+            AVEncoderBitRateKey,
+            [NSNumber numberWithInt: 2],
+            AVNumberOfChannelsKey,
+            [NSNumber numberWithFloat:44100.0],
+            AVSampleRateKey,
+            nil];	
             
             // create a new recorder for each start record
-            audioFile.recorder = [[CDVAudioRecorder alloc] initWithURL:audioFile.resourceURL settings:nil error:&error];
+            audioFile.recorder = [[CDVAudioRecorder alloc] initWithURL:audioFile.resourceURL settings:recordSettings error:&error];
             
             bool recordingSuccess = NO;
             if (error == nil) {
