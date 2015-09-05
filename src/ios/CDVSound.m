@@ -569,15 +569,11 @@
                 }
             }
 
-	    NSDictionary *recordSettings = [NSDictionary
-            dictionaryWithObjectsAndKeys:
-            [NSNumber numberWithInt:kAudioFormatMPEG4AAC],
-	    AVFormatIDKey,
-	    [NSNumber numberWithInt: 1], 
-            AVNumberOfChannelsKey,
-            [NSNumber numberWithFloat:44100.0],
-            AVSampleRateKey,
-            nil];	
+	    NSDictionary *recordSettings = [NSDictionary dictionaryWithObjectsAndKeys:
+                        [NSNumber numberWithInt: kAudioFormatMPEG4AAC], AVFormatIDKey,
+                        [NSNumber numberWithFloat:44100.0], AVSampleRateKey,
+                        [NSNumber numberWithInt: 1], AVNumberOfChannelsKey,
+                        nil];		
             
             // create a new recorder for each start record
             audioFile.recorder = [[CDVAudioRecorder alloc] initWithURL:audioFile.resourceURL settings:recordSettings error:&error];
