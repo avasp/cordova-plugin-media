@@ -26,7 +26,7 @@
 #define HTTP_SCHEME_PREFIX @"http://"
 #define HTTPS_SCHEME_PREFIX @"https://"
 #define CDVFILE_PREFIX @"cdvfile://"
-#define RECORDING_WAV @"m4a"
+#define RECORDING_WAV @"wav"
 
 @implementation CDVSound
 
@@ -569,19 +569,15 @@
                 }
             }
 
-	    // Set default formatID, quality, sampleRate and audioChannels
-            NSNumber* formatID = [NSNumber numberWithInt: kAudioFormatMPEG4AAC];
-            NSNumber* quality = [NSNumber numberWithInt:AVAudioQualityMedium];
-            NSNumber* sampleRate = [NSNumber numberWithFloat: 44100.0];
-            NSNumber* numberOfChannels = [NSNumber numberWithInt: 1];
-                
-                
+
             NSDictionary* recorderSettingsDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                    formatID,AVFormatIDKey,
-                    quality,AVEncoderAudioQualityKey,
-                    sampleRate,AVSampleRateKey,
-                    numberOfChannels,AVNumberOfChannelsKey,
-                    nil
+                   [NSNumber numberWithInt:kAudioFormatLinearPCM], AVFormatIDKey,
+		   [NSNumber numberWithFloat:44100.0f],AVSampleRateKey,
+                   [NSNumber numberWithInt:2],AVNumberOfChannelsKey,
+                   [NSNumber numberWithInt:16],AVLinearPCMBitDepthKey,
+                   [NSNumber numberWithBool:NO],AVLinearPCMIsBigEndianKey,
+                   [NSNumber numberWithBool:NO],AVLinearPCMIsFloatKey,
+                   nil
                 ];
                 
             
