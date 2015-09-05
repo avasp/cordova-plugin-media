@@ -573,8 +573,8 @@
             dictionaryWithObjectsAndKeys:
             [NSNumber numberWithInt:kAudioFormatMPEG4AAC],
 	    AVFormatIDKey,
-	    [NSNumber numberWithInt:96], 
-            AVEncoderBitRateKey,
+	    [NSNumber numberWithInt: 1], 
+            AVNumberOfChannelsKey,
             [NSNumber numberWithFloat:44100.0],
             AVSampleRateKey,
             nil];	
