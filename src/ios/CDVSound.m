@@ -571,12 +571,10 @@
 
 	    NSDictionary *recordSettings = [NSDictionary
             dictionaryWithObjectsAndKeys:
-            [NSNumber numberWithInt:AVAudioQualityMin],
-            AVEncoderAudioQualityKey,
-            [NSNumber numberWithInt:16],
+            [NSNumber numberWithInt:kAudioFormatMPEG4AAC],
+	    AVFormatIDKey,
+	    [NSNumber numberWithInt:96000], 
             AVEncoderBitRateKey,
-            [NSNumber numberWithInt: 2],
-            AVNumberOfChannelsKey,
             [NSNumber numberWithFloat:44100.0],
             AVSampleRateKey,
             nil];	
