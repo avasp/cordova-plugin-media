@@ -572,8 +572,8 @@
 
             NSDictionary* recorderSettingsDict = [NSDictionary dictionaryWithObjectsAndKeys:
                    [NSNumber numberWithInt:kAudioFormatLinearPCM], AVFormatIDKey,
-		   [NSNumber numberWithFloat:44100.0f],AVSampleRateKey,
-                   [NSNumber numberWithInt:2],AVNumberOfChannelsKey,
+		   [NSNumber numberWithFloat:16000.0f],AVSampleRateKey,
+                   [NSNumber numberWithInt:1],AVNumberOfChannelsKey,
                    [NSNumber numberWithInt:16],AVLinearPCMBitDepthKey,
                    [NSNumber numberWithBool:NO],AVLinearPCMIsBigEndianKey,
                    [NSNumber numberWithBool:NO],AVLinearPCMIsFloatKey,
