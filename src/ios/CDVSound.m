@@ -237,13 +237,17 @@
     if (!self.avSession) {
         NSError* error = nil;
 
-        self.avSession = [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
+        self.avSession = [AVAudioSession sharedInstance];
         if (error) {
             // is not fatal if can't get AVAudioSession , just log the error
             NSLog(@"error creating audio session: %@", [[error userInfo] description]);
             self.avSession = nil;
             bSession = NO;
         }
+    }
+    [self.avSession setCategory:AVAudioSessionCategoryRecord error:nil];
+    if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
+            [self.avSession setCategory:AVAudioSessionCategoryRecord error:nil];
     }
     return bSession;
 }
