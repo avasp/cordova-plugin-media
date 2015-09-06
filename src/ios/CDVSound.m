@@ -245,10 +245,6 @@
             bSession = NO;
         }
     }
-    [self.avSession setCategory:AVAudioSessionCategoryRecord error:nil];
-    if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
-            [self.avSession setCategory:AVAudioSessionCategoryRecord error:nil];
-    }
     return bSession;
 }
 
@@ -560,7 +556,7 @@
             // get the audioSession and set the category to allow recording when device is locked or ring/silent switch engaged
             if ([self hasAudioSession]) {
                 if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
-                    [self.avSession setCategory:AVAudioSessionCategoryRecord error:nil];
+                    //[self.avSession setCategory:AVAudioSessionCategoryRecord error:nil];
                 }
 
                 if (![self.avSession setActive:YES error:&error]) {
