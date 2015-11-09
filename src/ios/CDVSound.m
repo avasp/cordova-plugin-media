@@ -555,10 +555,10 @@
             }
             // get the audioSession and set the category to allow recording when device is locked or ring/silent switch engaged
             if ([self hasAudioSession]) {
-		//[self.avSession setCategory:AVAudioSessionCategoryRecord error:nil];	                
-		if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
+		[self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];	                
+		/*if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
                     [self.avSession setCategory:AVAudioSessionCategoryRecord error:nil];
-                }
+                }*/
              
 	        /*if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {	     
 		     [self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionMixWithOthers error:nil];
