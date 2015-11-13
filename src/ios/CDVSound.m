@@ -555,10 +555,10 @@
             }
             // get the audioSession and set the category to allow recording when device is locked or ring/silent switch engaged
             if ([self hasAudioSession]) {
-		//[self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];	                
-		if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
+		[self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];	                
+		/*if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
                     [self.avSession setCategory:AVAudioSessionCategoryRecord error:nil];
-                }
+                }*/
              
 	        /*if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {	     
 		     [self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionMixWithOthers error:nil];
@@ -683,6 +683,11 @@
         jsString = [NSString stringWithFormat:@"%@(\"%@\",%d,%@);", @"cordova.require('org.apache.cordova.media.Media').onStatus", mediaId, MEDIA_ERROR, [self createMediaErrorWithCode:MEDIA_ERR_DECODE message:nil]];
     }
     if (self.avSession) {
+        if ([self hasAudioSession]) {		                
+	   if ([self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
+	    	[self.avSession setCategory:AVAudioSessionCategoryRecord error:nil];
+	   } 
+	}
         [self.avSession setActive:NO error:nil];
     }
     [self.commandDelegate evalJs:jsString];
