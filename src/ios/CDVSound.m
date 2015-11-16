@@ -662,9 +662,12 @@
         NSLog(@"Stopped recording audio sample '%@'", audioFile.resourcePath);
         [audioFile.recorder stop];
         // no callback - that will happen in audioRecorderDidFinishRecording
-	 //Change-2 Raj
-	[self.avSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-        [self.avSession setActive:YES error:nil]; 
+	
+        //Change-2 Raj
+        if (self.avSession) {
+		[self.avSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+        	[self.avSession setActive:YES error:nil]; 
+        }
     }
     // ignore if no media recording
     if (jsString) {
