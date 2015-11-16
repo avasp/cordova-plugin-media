@@ -689,7 +689,7 @@
         [self.avSession setActive:NO error:nil];
         //Change-2 Raj
 	[self.avSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-        //[self.avSession setActive:YES error:nil]; 
+        [self.avSession setActive:YES error:nil]; 
     }
     [self.commandDelegate evalJs:jsString];
 }
