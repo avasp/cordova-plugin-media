@@ -664,7 +664,7 @@
         // no callback - that will happen in audioRecorderDidFinishRecording
 	
         //Change-2 Raj
-        / initializations go here.
+        // initializations go here.
 	AVAudioSession *audioSession = [AVAudioSession sharedInstance];
 	BOOL ok;
 	NSError *setCategoryError = nil;
