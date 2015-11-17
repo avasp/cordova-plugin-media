@@ -664,10 +664,14 @@
         // no callback - that will happen in audioRecorderDidFinishRecording
 	
         //Change-2 Raj
-        if (self.avSession) {
-		[self.avSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-        	[self.avSession setActive:YES error:nil]; 
-        }
+        / initializations go here.
+	AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+	BOOL ok;
+	NSError *setCategoryError = nil;
+	ok = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
+	if (!ok) {
+		NSLog(@"%s setCategoryError=%@", __PRETTY_FUNCTION__, setCategoryError);
+	}
     }
     // ignore if no media recording
     if (jsString) {
