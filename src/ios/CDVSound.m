@@ -557,11 +557,11 @@
             // get the audioSession and set the category to allow recording when device is locked or ring/silent switch engaged
             if ([self hasAudioSession]) {
 		//Change-1 Raj
-		//[self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+		[self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
                 
-		if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
+		/*if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
                     [self.avSession setCategory:AVAudioSessionCategoryRecord error:nil];
-                }
+                }*/
              
 	        /*if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {	     
 		     [self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionMixWithOthers error:nil];
@@ -665,13 +665,13 @@
 	
         //Change-2 Raj
         // initializations go here.
-	/*AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+	AVAudioSession *audioSession = [AVAudioSession sharedInstance];
 	BOOL ok;
 	NSError *setCategoryError = nil;
 	ok = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
 	if (!ok) {
 		NSLog(@"%s setCategoryError=%@", __PRETTY_FUNCTION__, setCategoryError);
-	}*/
+	}
     }
     // ignore if no media recording
     if (jsString) {
