@@ -665,13 +665,13 @@
 	
         //Change-2 Raj
         // initializations go here.
-	/*AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+	AVAudioSession *audioSession = [AVAudioSession sharedInstance];
 	BOOL ok;
 	NSError *setCategoryError = nil;
 	ok = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
 	if (!ok) {
 		NSLog(@"%s setCategoryError=%@", __PRETTY_FUNCTION__, setCategoryError);
-	}*/
+	}
     }
     // ignore if no media recording
     if (jsString) {
